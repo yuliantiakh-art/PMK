@@ -156,6 +156,34 @@ body {
     margin: 0 auto;
 }
 
+/* Section Icon Dividers */
+.section-icon-divider {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.bg-primary-container {
+    background-color: var(--color-primary-container);
+    color: var(--color-primary);
+}
+
+.bg-white-container {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: var(--color-highlight);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-icon-divider .material-symbols-outlined {
+    font-size: 1.65rem;
+    font-variation-settings: 'FILL' 1;
+}
+
 /* 4. Buttons & Badges */
 .btn {
     display: inline-flex;

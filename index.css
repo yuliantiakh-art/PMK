@@ -1056,6 +1056,91 @@ body {
     to { box-shadow: 0 0 25px rgba(244,194,29,0.6); }
 }
 
+/* Winner Illustrations Spacing & Animation */
+.winner-illustration {
+    width: 100px;
+    height: 100px;
+    margin: 12px auto 8px;
+    display: block;
+    z-index: 5;
+    overflow: visible;
+}
+
+/* Float Animation for the main trophy */
+.gold-illustration .trophy-main {
+    animation: trophyFloatGold 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.silver-illustration .trophy-main {
+    animation: trophyFloatSilver 3.5s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.bronze-illustration .trophy-main {
+    animation: trophyFloatBronze 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes trophyFloatGold {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes trophyFloatSilver {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(-1.5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes trophyFloatBronze {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Sparkles animation */
+.sparkles .sparkle {
+    animation: sparkleBlink 1.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.sparkles .s1 { animation-delay: 0.2s; }
+.sparkles .s2 { animation-delay: 0.6s; }
+.sparkles .s3 { animation-delay: 1s; }
+
+@keyframes sparkleBlink {
+    0%, 100% { transform: scale(0.6); opacity: 0.4; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Confetti animation */
+.sparkles .confetti {
+    animation: confettiFloat 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.sparkles .c1 { animation-delay: 0.1s; }
+.sparkles .c2 { animation-delay: 0.5s; }
+.sparkles .c3 { animation-delay: 0.9s; }
+
+@keyframes confettiFloat {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0.7; }
+    50% { transform: translateY(-6px) translateX(3px); opacity: 1; }
+}
+
+/* Crown pulse for Gold */
+.crown-svg {
+    animation: crownPulse 3s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes crownPulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-9px) scale(1.06); }
+}
+
 .podium-title {
     font-family: var(--font-display);
     font-size: 1.4rem;

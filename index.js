@@ -56,14 +56,37 @@ document.addEventListener('DOMContentLoaded', () => {
             if (header.classList.contains('active')) {
                 content.classList.add('show');
                 content.style.maxHeight = content.scrollHeight + 'px';
+                
+                // Clear any existing timeout and set max-height to none after transition
+                if (content.dataset.timeoutId) {
+                    clearTimeout(parseInt(content.dataset.timeoutId));
+                }
+                const tid = setTimeout(() => {
+                    if (header.classList.contains('active')) {
+                        content.style.maxHeight = 'none';
+                    }
+                }, 300);
+                content.dataset.timeoutId = tid;
             } else {
-                content.style.maxHeight = '0px';
-                // Wait for transition to complete before removing show class
+                // If it was 'none', set it to scrollHeight first to animate properly
+                if (content.style.maxHeight === 'none' || !content.style.maxHeight) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.offsetHeight; // Force reflow
+                }
+                
                 setTimeout(() => {
+                    content.style.maxHeight = '0px';
+                }, 10);
+
+                if (content.dataset.timeoutId) {
+                    clearTimeout(parseInt(content.dataset.timeoutId));
+                }
+                const tid = setTimeout(() => {
                     if (!header.classList.contains('active')) {
                         content.classList.remove('show');
                     }
                 }, 300);
+                content.dataset.timeoutId = tid;
             }
         });
     });
@@ -81,7 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (otherBtn !== btn && otherBtn.classList.contains('active')) {
                     otherBtn.classList.remove('active');
                     const otherAnswer = otherBtn.parentElement.querySelector('.faq-answer-content');
-                    otherAnswer.style.maxHeight = '0px';
+                    
+                    if (otherAnswer.style.maxHeight === 'none' || !otherAnswer.style.maxHeight) {
+                        otherAnswer.style.maxHeight = otherAnswer.scrollHeight + 'px';
+                        otherAnswer.offsetHeight;
+                    }
+                    setTimeout(() => {
+                        otherAnswer.style.maxHeight = '0px';
+                    }, 10);
+                    
                     setTimeout(() => {
                         if (!otherBtn.classList.contains('active')) {
                             otherAnswer.classList.remove('show');
@@ -95,13 +126,34 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn.classList.contains('active')) {
                 answer.classList.add('show');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
+                
+                if (answer.dataset.timeoutId) {
+                    clearTimeout(parseInt(answer.dataset.timeoutId));
+                }
+                const tid = setTimeout(() => {
+                    if (btn.classList.contains('active')) {
+                        answer.style.maxHeight = 'none';
+                    }
+                }, 300);
+                answer.dataset.timeoutId = tid;
             } else {
-                answer.style.maxHeight = '0px';
+                if (answer.style.maxHeight === 'none' || !answer.style.maxHeight) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.offsetHeight;
+                }
                 setTimeout(() => {
+                    answer.style.maxHeight = '0px';
+                }, 10);
+                
+                if (answer.dataset.timeoutId) {
+                    clearTimeout(parseInt(answer.dataset.timeoutId));
+                }
+                const tid = setTimeout(() => {
                     if (!btn.classList.contains('active')) {
                         answer.classList.remove('show');
                     }
                 }, 300);
+                answer.dataset.timeoutId = tid;
             }
         });
     });

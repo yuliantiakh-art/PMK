@@ -1786,3 +1786,50 @@ body {
         display: none;
     }
 }
+
+/* Pildacil Theme Visual Cards Custom Styling */
+.theme-selection-visual {
+    margin-top: 16px;
+}
+.theme-selection-title {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+.theme-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+}
+.theme-card-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light-pink);
+    border: 2px solid var(--color-outline-variant);
+    border-radius: var(--border-radius-default);
+    padding: 16px 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.theme-card-mini:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+.theme-card-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    font-variation-settings: 'FILL' 1;
+}
+.theme-card-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}

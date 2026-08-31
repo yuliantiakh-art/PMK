@@ -1260,6 +1260,20 @@ body {
     margin-top: 32px;
 }
 
+.parenting-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    display: block;
+    object-fit: contain;
+    aspect-ratio: auto;
+    transition: transform 0.5s ease;
+}
+
+.image-wrapper:hover .parenting-image {
+    transform: scale(1.03);
+}
+
 /* 15. Registration Steps Section */
 .registration-steps {
     padding: var(--spacing-section-gap) 0;

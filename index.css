@@ -1256,6 +1256,10 @@ body {
     font-size: 1.2rem;
 }
 
+.parenting-actions {
+    margin-top: 32px;
+}
+
 /* 15. Registration Steps Section */
 .registration-steps {
     padding: var(--spacing-section-gap) 0;

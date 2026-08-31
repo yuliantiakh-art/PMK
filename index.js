@@ -174,12 +174,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 timestamp: new Date().toISOString()
             });
 
-            // If it's a registration button, also trigger registration_start event
-            if (eventName.includes('register') || eventName.includes('cta_hero') || eventName.includes('sticky_cta')) {
+            // If it's a registration button, also trigger registration_start event and Meta Pixel InitiateCheckout
+            if (targetUrl.includes('bit.ly/') || eventName.includes('register') || eventName.includes('cta_hero') || eventName.includes('sticky_cta')) {
                 logAnalyticsEvent('registration_start', {
                     source: eventName,
                     destination: 'Google Form'
                 });
+                
+                // Meta Pixel InitiateCheckout
+                if (typeof fbq === 'function') {
+                    fbq('track', 'InitiateCheckout');
+                }
             }
         });
     });
